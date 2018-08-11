@@ -11,6 +11,7 @@ def main():
 
 
 def return_score_message(score):
+    """Return the correct score message"""
     if score < 0 or score > 100:
         result_message = "Invalid score"
     elif 90 < score <= 100:

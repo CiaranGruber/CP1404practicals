@@ -51,6 +51,7 @@ def main():
 
 
 def create_word(word_format):
+    """Create word from set format"""
     word = ''
     for kind in word_format:
         if kind == '%':
@@ -63,6 +64,7 @@ def create_word(word_format):
 
 
 def randomise_format():
+    """Create a random word format"""
     word_format = ''
     for x in range(random.randint(3, 13)):
         if random.randint(0, 2) > 0:
