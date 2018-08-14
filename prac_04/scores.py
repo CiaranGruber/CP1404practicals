@@ -34,7 +34,20 @@ def main():
         print(subjects[i], "Scores:")
         for score in score_values[i]:
             print(score)
+        print('Min:', min(score_values[i]))
         print("Max:", max(score_values[i]))
+        print("Average: {:.1f}".format(sum(score_values[i]) / len(score_values[i])))
+        print()
+        print('Table:')
+        for x in range(len(score_values[i])):
+            print('______', end='')
+        print()
+        for score in score_values[i]:
+            print('| {:<3} '.format(score), end='')
+        print('|')
+        for x in range(len(score_values[i])):
+            print('------', end='')
+        print()
         print()
 
 
