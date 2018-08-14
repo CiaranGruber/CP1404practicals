@@ -1,10 +1,8 @@
-NUMBER_COUNT = 5
-
-
 def main():
     numbers = []
-    for x in range(NUMBER_COUNT):
+    while len(numbers) < 1 or numbers[-1] > 0:
         numbers.append(get_integer('Number: ', 'Input must be a number', 'Input must be within limits'))
+    del numbers[-1]
     print('The first number is {}'.format(numbers[0]))
     print('The last number is {}'.format(numbers[-1]))
     print('The smallest number is {}'.format(min(numbers)))
