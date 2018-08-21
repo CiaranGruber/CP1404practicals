@@ -6,6 +6,7 @@ Counts how many words are in a user-entered string
 
 
 def main():
+    """Shows how many times a word appears in a user-entered string"""
     word_to_count = {}
     max_word_length = 0
     text = input('Text: ').split()
