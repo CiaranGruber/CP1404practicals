@@ -1,3 +1,9 @@
+"""
+Allow the user to input several guitars and decide whether they're vintage, etc.
+
+My Guitars! Created by Ciaran Gruber - 28/08/18
+"""
+
 from prac_06.guitar import Guitar
 
 
@@ -23,6 +29,7 @@ def main():
 
 
 def get_number(prompt, error_prompt, limit_prompt, min_num=0 - float('inf'), max_num=float('inf'), valid_type='either'):
+    """Require user to input a number which may be a specific type and limited"""
     valid_input = False
     number = None
     while not valid_input:
@@ -46,6 +53,7 @@ def get_number(prompt, error_prompt, limit_prompt, min_num=0 - float('inf'), max
 
 
 def get_largest_name(guitars):
+    """Find the largest name in a list guitars"""
     longest_word = 0
     for guitar in guitars:
         if len(guitar.name) > longest_word:
@@ -54,6 +62,7 @@ def get_largest_name(guitars):
 
 
 def get_largest_cost(guitars):
+    """Find the biggest cost (length) of a list of guitars"""
     longest_word = 0
     for guitar in guitars:
         if len(str(guitar.cost)) > longest_word:

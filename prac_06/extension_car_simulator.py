@@ -1,3 +1,9 @@
+"""
+Simulate driving a refueling a named car
+
+Car Simulator. Created by Ciaran Gruber - 28/08/18
+"""
+
 from prac_06.car import Car
 
 
@@ -32,7 +38,8 @@ def main():
     print("Good bye {}'s driver".format(car.name))
 
 
-def get_integer(prompt, error_prompt, limit_prompt, min_num=0 - float('inf'), max_num=float('inf')):
+def get_integer(prompt, error_prompt, limit_prompt='', min_num=0 - float('inf'), max_num=float('inf')):
+    """Get an integer from the user which may be limited"""
     valid_input = False
     number = None
     while not valid_input:

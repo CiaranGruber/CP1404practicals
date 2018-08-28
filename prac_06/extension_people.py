@@ -1,3 +1,9 @@
+"""
+Create table of user-entered people using person class
+
+My Guitars! Created by Ciaran Gruber - 28/08/18
+"""
+
 from operator import attrgetter
 
 
