@@ -8,7 +8,7 @@ import random
 
 MIN_NUMBER = 1
 MAX_NUMBER = 45
-QUICK_PICK_SIZE = 2523
+QUICK_PICK_SIZE = 6
 
 
 def main():
