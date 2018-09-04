@@ -22,8 +22,8 @@ class Date:
 
     def add_days(self, days):
         """Add a certain amount of days to a date. Includes leap years"""
-        while days >= 366 or days >= 365 and not Date.is_leap_year(self):  # Adds years until it can't anymore
-            if Date.is_leap_year(self):
+        while days >= 366 or days >= 365 and not self.is_leap_year():  # Adds years until it can't anymore
+            if self.is_leap_year():
                 self.year += 1
                 days -= 366
             else:
@@ -33,14 +33,14 @@ class Date:
         self.day = 1
         while days > 0:
             if days > self.month_to_day[self.month] + 1 or days > self.month_to_day[self.month] and \
-                    not(self.month == 2 and Date.is_leap_year(self)):
+                    not(self.month == 2 and self.is_leap_year()):
                 if self.month == 12:
                     self.month = 1
                     self.year += 1
                 else:
                     self.month += 1
                 days -= self.month_to_day[self.month]
-                if self.month == 2 and Date.is_leap_year(self):
+                if self.month == 2 and self.is_leap_year():
                     days -= 1
             else:
                 self.day += days - 1
