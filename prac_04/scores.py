@@ -14,7 +14,6 @@ def main():
     """Read and display student scores from scores file."""
     with open("scores.csv") as scores_file:
         scores_data = scores_file.readlines()
-    print(scores_data)
     subjects = scores_data[0].strip().split(",")
 
     score_values = []
