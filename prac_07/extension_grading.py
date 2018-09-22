@@ -45,4 +45,4 @@ class GradeChecker(App):
             self.root.ids.output_label.text = 'Invalid Grade'
 
 
-BoxLayoutDemo().run()
+GradeChecker().run()
