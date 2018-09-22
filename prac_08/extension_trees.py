@@ -85,10 +85,10 @@ class WideTree(Tree):
 
 class QuickTree(Tree):
     """Represent a tree that grows more quickly."""
-    increased_growth = 2
 
     def grow(self, sunlight, water):
-        super().grow(int(sunlight * self.increased_growth), int(water * self.increased_growth))
+        self._trunk_height += water
+        self._leaves += sunlight
 
 
 class FruitTree(Tree):
@@ -103,22 +103,24 @@ class FruitTree(Tree):
 
     def __init__(self):
         super().__init__()
-        self.fruit_count = 0
+        self._fruit = 1
 
     def __str__(self):
         return self.get_ascii_fruit() + super().__str__()
 
     def get_ascii_fruit(self):
         result = ""
-        if self.fruit_count % self.tree_leaves_per_row > 0:
-            result += "." * (self.fruit_count % self.tree_leaves_per_row) + '\n'
-        for i in range(self.fruit_count // self.tree_leaves_per_row):
+        if self._fruit % self.tree_leaves_per_row > 0:
+            result += "." * (self._fruit % self.tree_leaves_per_row) + '\n'
+        for i in range(self._fruit // self.tree_leaves_per_row):
             result += "." * self.tree_leaves_per_row + '\n'
         return result
 
     def grow(self, sunlight, water):
         super().grow(sunlight, water)
-        self.fruit_count += random.randint(0, (sunlight + water) // 2)
+        self._fruit += random.randint(0, 1)
+        if not random.randint(0, 5):
+            self._fruit -= 1
 
 
 class PineTree(Tree):
