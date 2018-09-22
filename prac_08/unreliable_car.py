@@ -19,4 +19,6 @@ class UnreliableCar(Car):
     def drive(self, distance):
         """Have a chance of driving the UnreliableCar depending on its reliability"""
         if random.randint(0, 100) < self.reliability:
-            return super().drive(100)
+            return super().drive(distance)
+        else:
+            return 0
