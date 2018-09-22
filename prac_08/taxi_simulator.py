@@ -11,12 +11,14 @@ TAXIS = [Taxi("Prius", 100), SilverServiceTaxi("Limo", 100, 2), SilverServiceTax
 MENU = """Menu:
 (D)rive
 (C)hoose Taxi
+(S)how Taxis
 (Q)uit"""
 
 
 def main():
     current_taxi = None
     bill = 0
+    distance = 0
 
     print("Let's Drive!")
     print()
@@ -27,15 +29,21 @@ def main():
         if menu_choice == 'D':
             if current_taxi is not None:
                 current_taxi.start_fare()
-                current_taxi.drive(get_positive_integer('Drive how far? ', ))
+                distance += current_taxi.drive(get_positive_integer('Drive how far? ', ))
                 bill += current_taxi.get_fare()
                 print('Your', current_taxi.name, 'trip cost $' + str(current_taxi.get_fare()))
             else:
                 print('No car has been chosen')
-        else:
+        elif menu_choice == 'C':
             for i, taxi in enumerate(TAXIS):
                 print((i + 1), '-', taxi)
             current_taxi = TAXIS[get_positive_integer('Choose Taxi: ', len(TAXIS)) - 1]
+        elif menu_choice == 'S':
+            for taxi in TAXIS:
+                print('{}: price ${}/km, fanciness: {}'.format(taxi.name, taxi.price_per_km,
+                                                               taxi.price_per_km / Taxi.price_per_km))
+        else:
+            print('Invalid menu choice')
         print('Bill to date: $' + str(bill))
         print()
         print(MENU)
