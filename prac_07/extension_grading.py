@@ -1,0 +1,48 @@
+from kivy.app import App
+from kivy.lang import Builder
+from kivy.core.window import Window
+
+
+class BoxLayoutDemo(App):
+    def build(self):
+        """
+        Build the Kivy GUI
+        :return:
+        """
+        Window.size = (800, 300)
+        self.title = 'Greeter Program'
+        self.root = Builder.load_file('extension_grading.kv')
+        return self.root
+
+    def clear_all(self):
+        """
+        Clear all text
+        :return:
+        """
+        self.root.ids.output_label.text = ''
+        self.root.ids.input_grade.text = ''
+
+    def calculate_grade(self):
+        """
+        Handle the pressing the greet button
+        :return:
+        """
+        try:
+            if int(self.root.ids.input_grade.text) >= 85:
+                grade = 'High Distinction'
+            elif int(self.root.ids.input_grade.text) >= 75:
+                grade = 'Distinction'
+            elif int(self.root.ids.input_grade.text) >= 65:
+                grade = 'Credit'
+            elif int(self.root.ids.input_grade.text) >= 50:
+                grade = 'Pass'
+            else:
+                grade = 'Fail'
+            print('Your grade is', grade)
+            self.root.ids.output_label.text = 'Grade: ' + grade
+        except ValueError:
+            print('Invalid Grade')
+            self.root.ids.output_label.text = 'Invalid Grade'
+
+
+BoxLayoutDemo().run()
