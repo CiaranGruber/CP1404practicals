@@ -3,14 +3,14 @@ from kivy.lang import Builder
 from kivy.core.window import Window
 
 
-class BoxLayoutDemo(App):
+class GradeChecker(App):
     def build(self):
         """
         Build the Kivy GUI
         :return:
         """
         Window.size = (800, 300)
-        self.title = 'Greeter Program'
+        self.title = 'Grade Checker'
         self.root = Builder.load_file('extension_grading.kv')
         return self.root
 
