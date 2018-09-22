@@ -40,8 +40,11 @@ def main():
             current_taxi = TAXIS[get_positive_integer('Choose Taxi: ', len(TAXIS)) - 1]
         elif menu_choice == 'S':
             for taxi in TAXIS:
-                print('{}: price ${}/km, fanciness: {}'.format(taxi.name, taxi.price_per_km,
-                                                               taxi.price_per_km / Taxi.price_per_km))
+                try:
+                    print('{}: price ${}/km plus flagfall of {}, fanciness: {}'.format(taxi.name, taxi.price_per_km, taxi.flagfall,
+                                                                                       taxi.price_per_km / Taxi.price_per_km))
+                except AttributeError:
+                    print('{}: price ${}/km'.format(taxi.name, taxi.price_per_km))
         else:
             print('Invalid menu choice')
         print('Bill to date: $' + str(bill))
