@@ -44,6 +44,7 @@ def main():
 
 
 def get_positive_integer(prompt, max_num=float('inf')):
+    """Get a positive integer from the user"""
     integer = -1
     while 0 > integer or integer > max_num:
         try:
