@@ -1,5 +1,6 @@
 from kivy.app import App
 from kivy.lang import Builder
+from kivy.core.window import Window
 
 
 class BoxLayoutDemo(App):
@@ -8,7 +9,8 @@ class BoxLayoutDemo(App):
         Build the Kivy GUI
         :return:
         """
-        self.title = 'Box Layout Demo'
+        Window.size = (800, 300)
+        self.title = 'Greeter Program'
         self.root = Builder.load_file('box_layout.kv')
         return self.root
 
