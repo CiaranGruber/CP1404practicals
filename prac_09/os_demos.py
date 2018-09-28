@@ -18,7 +18,7 @@ def main():
 
     # Make a new directory
     # The next time you run this, it will crash if the directory exists
-    # TODO: Use exception handling to avoid the crash (just pass)
+    # CompletedTODO: Use exception handling to avoid the crash (just pass)
     try:
         os.mkdir('temp')
     except FileExistsError:
