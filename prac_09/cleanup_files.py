@@ -2,13 +2,22 @@
 CP1404/CP5632 Practical
 Demos of various os module examples
 """
-import shutil
 import os
 
 
 def get_fixed_filename(filename):
     """Return a 'fixed' version of filename."""
-    new_name = filename.replace(" ", "_").replace(".TXT", ".txt")
+    filename = filename.replace('.TXT', '.txt')
+    new_name = ""
+    for i, letter in enumerate(filename):
+        if letter.isupper() and i != 0:
+            new_name += '_'
+        if letter == ' ':
+            new_name += '_'
+        else:
+            new_name += letter
+    new_name = '_'.join([name.title() for name in new_name.split('_')])
+    new_name = new_name.replace('.Txt', '.txt')
     return new_name
 
 
