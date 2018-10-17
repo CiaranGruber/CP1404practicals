@@ -1,0 +1,34 @@
+BoxLayout:
+    orientation: 'vertical'
+    BoxLayout:
+        orientation: 'horizontal'
+        BoxLayout:
+            orientation: 'vertical'
+            id: names_box
+            cols: 1
+        BoxLayout:
+            orientation: 'vertical'
+            id: deletions_box
+            cols: 1
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint_y: 0.4
+        BoxLayout:
+            orientation: 'vertical'
+            Label:
+                text: 'Name:'
+            TextInput:
+                id: name_input
+                text: ''
+            Label:
+                text: 'Age'
+            TextInput:
+                id: age_input
+                text: ''
+        Button:
+            text: 'Add names'
+            on_release: app.add_name()
+    Label:
+        size_hint_y: 0.3
+        id: output_label
+        text: ''
