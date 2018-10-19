@@ -4,7 +4,7 @@ Search Wikipedia pages based upon their title and display the summary.
 Wiki Search. Created by Ciaran Gruber - 19/10/18
 """
 
-from wikipedia import wikipedia
+import wikipedia
 
 
 def get_integer(prompt, min_num=1, max_num=float('inf')):
@@ -33,15 +33,15 @@ def main():
     menu_option = input('Title: ')
     while menu_option.strip() != '':
         print()
-        title = wikipedia.suggest(menu_option)
         try:
-            print(wikipedia.summary(title))
+            print(wikipedia.summary(menu_option).strip())
         except wikipedia.exceptions.DisambiguationError as e:
-            print(title + ' refers to a disambiguation page. Which page do you wish to choose instead?')
+            print(menu_option + ' refers to a disambiguation page. Which page do you wish to choose instead?')
             for i, title in enumerate(e.options):
                 print(str(i + 1) + '.', title)
             menu_option = e.options[get_integer('Which page: ', 1, len(e.options)) - 1]
-            print(wikipedia.summary(menu_option))
+            print()
+            print(wikipedia.summary(menu_option).strip())
         print()
         menu_option = input('Title: ')
 
